@@ -1,202 +1,55 @@
-/* Meow Theme - Dark, fun, purple/pink vibes for Kevin's unblocked hub */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #0d001a, #1a0033); /* Deep space purple gradient */
-  color: #e0e0ff;
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-}
-
-nav {
-  text-align: center;
-  margin-bottom: 25px;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-}
-
-nav a {
-  color: #ff99ff; /* Bright pink */
-  margin: 0 20px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.3em;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ff66ff;
-  text-shadow: 0 0 8px #ff99ff;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-h1 {
-  color: #ffccff;
-  font-size: 2.8em;
-  text-shadow: 0 0 15px #ff99ff, 0 0 30px #cc66ff;
-  margin: 0;
-}
-
-h2 {
-  color: #99ff99; /* Neon green for sections */
-  text-align: center;
-  margin: 40px 0 20px;
-}
-
-h3 {
-  color: #ccffcc;
-  margin-bottom: 10px;
-}
-
-form#search-section form {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 30px 0;
-}
-
-input#query {
-  padding: 14px;
-  font-size: 1.1em;
-  width: 70%;
-  max-width: 600px;
-  border: 3px solid #ff99ff;
-  border-radius: 12px;
-  background: #220044;
-  color: #fff;
-  outline: none;
-}
-
-input#query:focus {
-  border-color: #ff66ff;
-  box-shadow: 0 0 12px #ff99ff;
-}
-
-button {
-  padding: 14px 28px;
-  font-size: 1.1em;
-  background: linear-gradient(#ff66ff, #cc33cc);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff99ff;
-}
-
-.game-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-  margin: 30px 0;
-}
-
-.game-card {
-  background: rgba(26, 0, 51, 0.7);
-  border: 3px solid #663399;
-  border-radius: 16px;
-  padding: 12px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  overflow: hidden;
-}
-
-.game-card:hover {
-  transform: translateY(-8px) scale(1.06);
-  box-shadow: 0 12px 30px rgba(255, 153, 255, 0.5);
-  border-color: #ff99ff;
-}
-
-.game-card img {
+/* Modal Overlay (on top of screen) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
   width: 100%;
-  max-width: 180px;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
 }
 
-.game-card p {
-  margin: 0;
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #ffccff;
-}
-
-#game-container {
-  margin: 50px auto;
-  max-width: 95%;
-  background: rgba(34, 0, 68, 0.9);
-  padding: 25px;
-  border-radius: 16px;
+.modal-content {
+  background: rgba(34,0,68,0.95);
+  margin: 5% auto;
+  padding: 20px;
   border: 4px solid #ff99ff;
+  width: 90%;
+  max-width: 1200px;
+  height: 85vh;
+  border-radius: 16px;
   position: relative;
-  box-shadow: 0 0 40px rgba(255, 153, 255, 0.4);
+  box-shadow: 0 0 50px rgba(255,153,255,0.6);
 }
 
-#close-game {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: #ff4444;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  font-size: 1.4em;
+.close-modal {
+  color: #ff4444;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-#close-game:hover {
-  background: #ff2222;
+.close-modal:hover {
+  color: #ff2222;
 }
 
-#fullscreen-btn {
-  margin: 10px 0;
+#modal-iframe {
+  width: 100%;
+  height: calc(100% - 60px); /* Leave space for title + buttons */
+  margin-top: 20px;
+  border: none;
+}
+
+#modal-fullscreen {
   background: #44ff44;
   color: black;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
+  margin-bottom: 10px;
   font-weight: bold;
 }
-
-#fullscreen-btn:hover {
-  background: #33cc33;
-}
-
-footer {
-  text-align: center;
-  margin-top: 80px;
-  padding: 20px;
-  color: #9966ff;
-  font-size: 0.9em;
-  border-top: 1px solid #663399;
-}
-
-/* Responsive tweaks for phone/school Chromebook */
-@media (max-width: 600px) {
-  input#query {
-    width: 100%;
-  }
-  button {
-    width: 100%;
-    margin-top: 10px;
-  }
-  .game-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  }
-  }
