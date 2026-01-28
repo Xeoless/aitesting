@@ -1,0 +1,139 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0d001a; /* Dark purple-ish for "Meow" vibe */
+  color: #e0e0ff;
+  margin: 0;
+  padding: 20px;
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: #ff99ff; /* Pink for meow fun */
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  color: #ffccff;
+  text-shadow: 0 0 10px #ff99ff;
+}
+
+h2, h3 {
+  color: #99ff99;
+}
+
+form {
+  text-align: center;
+  margin: 30px 0;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  width: 60%;
+  max-width: 500px;
+  border-radius: 8px;
+  border: 2px solid #ff99ff;
+  background: #1a0033;
+  color: white;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 18px;
+  background: #ff66ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  background: #ff33ff;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.game-card {
+  background: #1a0033;
+  border: 2px solid #663399;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.game-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #ff99ff;
+  border-color: #ff99ff;
+}
+
+.game-card img {
+  border-radius: 8px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.game-card p {
+  margin: 10px 0 0;
+  font-weight: bold;
+  color: #ffccff;
+}
+
+#game-container {
+  margin: 40px auto;
+  max-width: 1200px;
+  background: #220044;
+  padding: 20px;
+  border-radius: 12px;
+  border: 3px solid #ff99ff;
+  position: relative;
+}
+
+#close-game {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #ff3333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#fullscreen-btn {
+  margin-left: 10px;
+  background: #33cc33;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  color: #9966ff;
+}
