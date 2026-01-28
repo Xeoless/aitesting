@@ -1,139 +1,202 @@
+/* Meow Theme - Dark, fun, purple/pink vibes for Kevin's unblocked hub */
 body {
-  font-family: Arial, sans-serif;
-  background: #0d001a; /* Dark purple-ish for "Meow" vibe */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #0d001a, #1a0033); /* Deep space purple gradient */
   color: #e0e0ff;
   margin: 0;
   padding: 20px;
+  min-height: 100vh;
 }
 
 nav {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
 }
 
 nav a {
-  color: #ff99ff; /* Pink for meow fun */
-  margin: 0 15px;
+  color: #ff99ff; /* Bright pink */
+  margin: 0 20px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff66ff;
+  text-shadow: 0 0 8px #ff99ff;
 }
 
 header {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 h1 {
   color: #ffccff;
-  text-shadow: 0 0 10px #ff99ff;
+  font-size: 2.8em;
+  text-shadow: 0 0 15px #ff99ff, 0 0 30px #cc66ff;
+  margin: 0;
 }
 
-h2, h3 {
-  color: #99ff99;
-}
-
-form {
+h2 {
+  color: #99ff99; /* Neon green for sections */
   text-align: center;
+  margin: 40px 0 20px;
+}
+
+h3 {
+  color: #ccffcc;
+  margin-bottom: 10px;
+}
+
+form#search-section form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 30px 0;
 }
 
-input {
-  padding: 12px;
-  font-size: 18px;
-  width: 60%;
-  max-width: 500px;
-  border-radius: 8px;
-  border: 2px solid #ff99ff;
-  background: #1a0033;
-  color: white;
+input#query {
+  padding: 14px;
+  font-size: 1.1em;
+  width: 70%;
+  max-width: 600px;
+  border: 3px solid #ff99ff;
+  border-radius: 12px;
+  background: #220044;
+  color: #fff;
+  outline: none;
+}
+
+input#query:focus {
+  border-color: #ff66ff;
+  box-shadow: 0 0 12px #ff99ff;
 }
 
 button {
-  padding: 12px 20px;
-  font-size: 18px;
-  background: #ff66ff;
+  padding: 14px 28px;
+  font-size: 1.1em;
+  background: linear-gradient(#ff66ff, #cc33cc);
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-button:hover {
-  background: #ff33ff;
-}
-
-.game-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
-
-.game-card {
-  background: #1a0033;
-  border: 2px solid #663399;
   border-radius: 12px;
-  padding: 10px;
-  text-align: center;
   cursor: pointer;
   transition: all 0.3s;
 }
 
-.game-card:hover {
-  transform: scale(1.08);
+button:hover {
+  transform: scale(1.05);
   box-shadow: 0 0 20px #ff99ff;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.game-card {
+  background: rgba(26, 0, 51, 0.7);
+  border: 3px solid #663399;
+  border-radius: 16px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.06);
+  box-shadow: 0 12px 30px rgba(255, 153, 255, 0.5);
   border-color: #ff99ff;
 }
 
 .game-card img {
-  border-radius: 8px;
   width: 100%;
-  max-width: 200px;
+  max-width: 180px;
   height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 .game-card p {
-  margin: 10px 0 0;
+  margin: 0;
   font-weight: bold;
+  font-size: 1.2em;
   color: #ffccff;
 }
 
 #game-container {
-  margin: 40px auto;
-  max-width: 1200px;
-  background: #220044;
-  padding: 20px;
-  border-radius: 12px;
-  border: 3px solid #ff99ff;
+  margin: 50px auto;
+  max-width: 95%;
+  background: rgba(34, 0, 68, 0.9);
+  padding: 25px;
+  border-radius: 16px;
+  border: 4px solid #ff99ff;
   position: relative;
+  box-shadow: 0 0 40px rgba(255, 153, 255, 0.4);
 }
 
 #close-game {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  background: #ff3333;
+  top: 15px;
+  right: 20px;
+  background: #ff4444;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border-radius: 50%;
+  font-size: 1.4em;
   cursor: pointer;
-  font-size: 1.2em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+#close-game:hover {
+  background: #ff2222;
 }
 
 #fullscreen-btn {
-  margin-left: 10px;
-  background: #33cc33;
-  color: white;
+  margin: 10px 0;
+  background: #44ff44;
+  color: black;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
+}
+
+#fullscreen-btn:hover {
+  background: #33cc33;
 }
 
 footer {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 80px;
+  padding: 20px;
   color: #9966ff;
+  font-size: 0.9em;
+  border-top: 1px solid #663399;
 }
+
+/* Responsive tweaks for phone/school Chromebook */
+@media (max-width: 600px) {
+  input#query {
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+  }
