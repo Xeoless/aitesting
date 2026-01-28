@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meow</title>
+  <title>Meow - Unblocked Games</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,87 +13,85 @@
   </nav>
 
   <header>
-    <h1>Meow</h1>
-    <p>Search or click thumbnails – everything loads right here in Meow!</p>
+    <h1>Meow! Play Crazy Games 😼</h1>
+    <p>Search or click thumbnails – loads right here!</p>
   </header>
 
-  <!-- Search Section with Embedded DuckDuckGo -->
+  <!-- Search with Embed + Fallback -->
   <section id="search-section">
-    <h2>Meow Search – Games Inside!</h2>
+    <h2>Meow Search for Games</h2>
     <form id="searchForm">
-      <input type="text" id="query" placeholder="Type game... e.g. slope unblocked" required>
-      <button type="submit">Search Meow!</button>
+      <input type="text" id="query" placeholder="e.g. slope unblocked" required>
+      <button type="submit">Search Inside Meow</button>
     </form>
 
-    <div id="search-results" style="margin-top: 30px; border: 2px solid #ff99ff; border-radius: 12px; overflow: hidden; display: none;">
-      <iframe id="resultsFrame" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+    <div id="search-results" style="margin-top:30px; border:2px solid #ff99ff; border-radius:12px; overflow:hidden; display:none;">
+      <iframe id="resultsFrame" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
     </div>
 
     <p id="search-note" style="text-align:center; color:#ff9999; font-size:1em; margin-top:10px; display:none;">
-      If blank or blocked (school filter?), try a different name or tell me – we can add a tab fallback!
+      Embed blocked? Click below for tab:
     </p>
+    <button id="search-fallback-btn" style="display:none; margin:10px auto; background:#ff66ff; color:white; padding:12px 24px; border:none; border-radius:12px; cursor:pointer; font-size:1.1em;">
+      Open Search in New Tab
+    </button>
   </section>
 
-  <!-- Featured Games -->
+  <!-- Games Section -->
   <section id="featured-games">
-    <h2>Featured Games – Click to Load in Meow UI!</h2>
+    <h2>Featured Games – Click to Play in Meow UI!</h2>
 
     <div class="game-grid">
-      <!-- 2048 -->
-      <div class="game-card" onclick="loadGame('https://gabrielecirulli.github.io/2048/', '2048 - Merge Tiles!')">
+      <div class="game-card" onclick="loadGame('https://gabrielecirulli.github.io/2048/', '2048 - Merge!')">
         <img src="images/2048.png" alt="2048">
         <p>2048</p>
       </div>
 
-      <!-- Slope (reliable GitHub mirror) -->
-      <div class="game-card" onclick="loadGame('https://slope-game-io.github.io/', 'Slope - Neon Rush!')">
-        <img src="images/slope.png" alt="Slope"> <!-- Upload if missing -->
+      <div class="game-card" onclick="loadGame('https://slope-game-io.github.io/', 'Slope - Rush!')">
+        <img src="images/slope.png" alt="Slope"> <!-- Upload slope.png if not there -->
         <p>Slope</p>
       </div>
 
-      <!-- Run 3 -->
-      <div class="game-card" onclick="loadGame('https://run3-unblock.github.io/', 'Run 3 - Space Runner!')">
+      <div class="game-card" onclick="loadGame('https://run3free.github.io/', 'Run 3 - Space!')">
         <img src="images/run3.png" alt="Run 3">
         <p>Run 3</p>
       </div>
 
-      <!-- Retro Bowl -->
-      <div class="game-card" onclick="loadGame('https://retrobowl.me/', 'Retro Bowl - Coach Your Team!')">
+      <div class="game-card" onclick="loadGame('https://retrobowl.me/', 'Retro Bowl - Football!')">
         <img src="images/retro-bowl.png" alt="Retro Bowl">
         <p>Retro Bowl</p>
       </div>
 
-      <!-- 1v1.lol (GitHub mirror) -->
-      <div class="game-card" onclick="loadGame('https://1v1-lol-online.github.io/', '1v1.lol - Build & Battle!')">
+      <div class="game-card" onclick="loadGame('https://1v1-lol-online.github.io/', '1v1.lol - Build & Shoot!')">
         <img src="images/5269718.jpg" alt="1v1.lol">
         <p>1v1.lol</p>
       </div>
 
-      <!-- Cookie Clicker -->
-      <div class="game-card" onclick="loadGame('https://orteil.dashnet.org/cookieclicker/', 'Cookie Clicker - Idle Madness!')">
+      <div class="game-card" onclick="loadGame('https://orteil.dashnet.org/cookieclicker/', 'Cookie Clicker - Idle!')">
         <img src="images/cookie-clicker.png" alt="Cookie Clicker">
         <p>Cookie Clicker</p>
       </div>
     </div>
 
-    <!-- Game UI Container -->
-    <div id="game-container" style="display:none; margin: 50px auto; max-width:95%; background:rgba(34,0,68,0.9); padding:20px; border-radius:16px; border:4px solid #ff99ff; position:relative; box-shadow:0 0 40px rgba(255,153,255,0.4);">
+    <!-- Game UI -->
+    <div id="game-container" style="display:none; margin:50px auto; max-width:95%; background:rgba(34,0,68,0.9); padding:20px; border-radius:16px; border:4px solid #ff99ff; box-shadow:0 0 40px rgba(255,153,255,0.4); position:relative;">
       <button id="close-game" style="position:absolute; top:15px; right:20px; background:#ff4444; color:white; border:none; padding:10px 14px; border-radius:50%; font-size:1.4em; cursor:pointer;">X</button>
-      <h3 id="game-title" style="color:#ccffcc; text-align:center;">Loading Game...</h3>
+      <h3 id="game-title" style="color:#ccffcc; text-align:center;">Loading...</h3>
       <button id="fullscreen-btn" style="margin:10px auto; display:block; background:#44ff44; color:black; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold;">Fullscreen</button>
       <iframe id="game-iframe" width="100%" height="600" frameborder="0" allowfullscreen></iframe>
     </div>
   </section>
 
   <footer style="text-align:center; margin-top:80px; color:#9966ff;">
-    <p>Meow</p>
+    <p>Meow • Kevin's Tinley Park Hub • Stay Sneaky! 😼</p>
   </footer>
 
-  <!-- All JavaScript embedded here (no separate file needed) -->
+  <!-- Embedded Script (all JS here) -->
   <script>
-    // Search form - embed DuckDuckGo results in iframe
+    // Search: Try embed first, fallback to new tab if blank
     const form = document.getElementById('searchForm');
     const queryInput = document.getElementById('query');
+    const fallbackBtn = document.getElementById('search-fallback-btn');
 
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -107,19 +105,25 @@
         const resultsDiv = document.getElementById('search-results');
         const note = document.getElementById('search-note');
 
-        frame.src = `https://duckduckgo.com/?q=${q}&kp=1&kl=us-en&ia=web`;
+        const searchUrl = `https://duckduckgo.com/?q=${q}&kp=1&kl=us-en&ia=web`;
+
+        frame.src = searchUrl;
         resultsDiv.style.display = 'block';
         note.style.display = 'none';
+        fallbackBtn.style.display = 'none';
 
-        // Check if blank after load
         frame.onload = function() {
           try {
             const content = frame.contentDocument || frame.contentWindow.document;
             if (content && content.body.innerHTML.length < 500) {
               note.style.display = 'block';
+              fallbackBtn.style.display = 'block';
+              fallbackBtn.onclick = () => window.open(searchUrl, '_blank');
             }
           } catch (err) {
             note.style.display = 'block';
+            fallbackBtn.style.display = 'block';
+            fallbackBtn.onclick = () => window.open(searchUrl, '_blank');
           }
         };
 
@@ -127,7 +131,7 @@
       });
     }
 
-    // Load game in UI iframe
+    // Load game
     function loadGame(url, title) {
       const container = document.getElementById('game-container');
       const iframe = document.getElementById('game-iframe');
@@ -138,7 +142,7 @@
         iframe.src = url;
         container.style.display = 'block';
 
-        // Smooth scroll to game container only (no full top jump)
+        // Smooth scroll to container only
         setTimeout(() => {
           container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 400);
@@ -148,16 +152,12 @@
     // Close game
     document.addEventListener('click', (e) => {
       if (e.target.id === 'close-game') {
-        const container = document.getElementById('game-container');
-        const iframe = document.getElementById('game-iframe');
-        if (container && iframe) {
-          iframe.src = '';
-          container.style.display = 'none';
-        }
+        document.getElementById('game-iframe').src = '';
+        document.getElementById('game-container').style.display = 'none';
       }
     });
 
-    // Fullscreen game iframe
+    // Fullscreen
     document.addEventListener('click', (e) => {
       if (e.target.id === 'fullscreen-btn') {
         const iframe = document.getElementById('game-iframe');
@@ -170,4 +170,4 @@
     });
   </script>
 </body>
-                                                                                     </html>
+</html>
